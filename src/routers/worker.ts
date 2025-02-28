@@ -9,7 +9,7 @@ import { createSubmissionInput } from "../types";
 import { Connection, Keypair, PublicKey, SystemProgram, Transaction, sendAndConfirmTransaction } from "@solana/web3.js";
 import { privateKey } from "../privateKey";
 import { decode } from "bs58";
-const connection = new Connection(process.env.RPC_URL ?? "");
+const connection = new Connection(process.env.RPC_URL ?? "https://api.devnet.solana.com");
 
 const TOTAL_SUBMISSIONS = 100;
 

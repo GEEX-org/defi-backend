@@ -9,7 +9,7 @@ import { createPresignedPost } from '@aws-sdk/s3-presigned-post'
 import { createTaskInput } from "../types";
 import { Connection, PublicKey, Transaction } from "@solana/web3.js";
 
-const connection = new Connection(process.env.RPC_URL ?? "");
+const connection = new Connection(process.env.RPC_URL ?? "https://api.devnet.solana.com");
 // wallet address
 //const PARENT_WALLET_ADDRESS = "ExL4SzuHWgmpQrSt9RWwjWy3ztgDkiED4weymLnnK1z8";
   const PARENT_WALLET_ADDRESS = "5vrRuAhK2TthC9HrXwRaxLPNw88xe9dfe4SwReDQPQmB"; 
@@ -60,7 +60,6 @@ router.get("/task", authMiddleware, async (req, res) => {
         })
     }
 
-    // Todo: Can u make this faster?
     const responses = await prismaClient.submission.findMany({
         where: {
             task_id: Number(taskId)
